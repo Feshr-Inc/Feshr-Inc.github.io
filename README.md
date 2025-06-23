@@ -1,7 +1,7 @@
 <body>
   <div class="container" id="content">
     <h1 class="animated-gradient-text">Find Your Next Destination</h1>
-    <p class="lead">Explore curated options tailored just for you. Whether it’s learning, shopping, or discovering new opportunities, your journey starts here.</p>
+    <p class="lead">Connect with Infinity...</p>
     <button class="btn-primary" id="nextBtn">Explore Now</button>
   </div>
 
