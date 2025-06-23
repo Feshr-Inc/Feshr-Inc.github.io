@@ -1,6 +1,7 @@
 <body>
   <div class="container" id="content">
-    <h1 class="animated-gradient-text">Connect with Infinity. Your journey starts here...</p>
+    <h1 class="animated-gradient-text">Find Your Next Destination</h1>
+    <p class="lead">Connect with Infinity. Your Journry starts here...</p>
     <button class="btn-primary" id="nextBtn">Explore Now</button>
   </div>
 
@@ -158,7 +159,7 @@
     const xmlData = 
     <page>
       <title>Find Your Next Destination</title>
-      <description>Connect with Infinity. Your journey starts here...</description>
+      <description>Connect with Infinity. Your Journry starts here...</description>
       <cta>
         <text>Explore Now</text>
         <link>nextpage.html</link>
