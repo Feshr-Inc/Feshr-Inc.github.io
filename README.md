@@ -142,7 +142,8 @@
       background-size: cover;
       pointer-events: none;
       opacity: 0.3;
-    }@keyframes fadeInUp {
+    }
+    @keyframes fadeInUp {
       0% {
         opacity: 0;
         transform: translateY(30px);
@@ -158,7 +159,7 @@
     const xmlData = 
     <page>
       <title>Find Your Next Destination</title>
-      <description>Explore curated options tailored just for you. Whether it’s learning, shopping, or discovering new opportunities, your journey starts here.</description>
+      <description>Connect with Infinity...</description>
       <cta>
         <text>Explore Now</text>
         <link>nextpage.html</link>
