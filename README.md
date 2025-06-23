@@ -1,7 +1,7 @@
 <body>
   <div class="container" id="content">
     <h1 class="animated-gradient-text">Find Your Next Destination</h1>
-    <p class="lead">Connect with Infinity...</p>
+    <p class="lead">Connect with Infinity... Your journey starts here.</p>
     <button class="btn-primary" id="nextBtn">Explore Now</button>
   </div>
 
@@ -142,8 +142,7 @@
       background-size: cover;
       pointer-events: none;
       opacity: 0.3;
-    }
-    @keyframes fadeInUp {
+    }@keyframes fadeInUp {
       0% {
         opacity: 0;
         transform: translateY(30px);
@@ -159,7 +158,7 @@
     const xmlData = 
     <page>
       <title>Find Your Next Destination</title>
-      <i><description> Connect with Infinity...</i></description>
+      <description>Connect with Infinity... Your journey starts here.</description>
       <cta>
         <text>Explore Now</text>
         <link>nextpage.html</link>
