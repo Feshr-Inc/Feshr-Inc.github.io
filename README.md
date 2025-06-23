@@ -159,7 +159,7 @@
     const xmlData = 
     <page>
       <title>Find Your Next Destination</title>
-      <description>Explore curated options tailored just for you. Whether it’s learning, shopping, or discovering new opportunities, your journey starts here.</description>
+      <i><description> Connect with Infinity...</i></description>
       <cta>
         <text>Explore Now</text>
         <link>nextpage.html</link>
