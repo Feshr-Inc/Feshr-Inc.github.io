@@ -1,22 +1,17 @@
-<body>
-  <div class="container" id="content">
-    <h1 class="animated-gradient-text">Find Your Next Destination</h1>
-    <p class="lead">Connect with Infinity. Your Journry starts here...</p>
-    <button class="btn-primary" id="nextBtn">Explore Now</button>
-  </div>
-
-  <div class="wave"></div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Your Next Destination</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-
     body {
       height: 100vh;
       margin: 0; padding: 0;
       font-family: 'Poppins', sans-serif;
       color: #222;
-
-      /* Soft white gradient background with subtle movement */
       background: linear-gradient(
         45deg,
         #ffffff 0%,
@@ -28,18 +23,15 @@
       );
       background-size: 300% 300%;
       background-position: 0% 50%;
-
       animation:
         bg-move-x 15s ease-in-out infinite alternate,
         bg-move-y 25s ease-in-out infinite alternate,
         bg-hue-rotate 30s linear infinite;
-
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-
     @keyframes bg-move-x {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
@@ -52,11 +44,10 @@
       0% { filter: hue-rotate(0deg); }
       100% { filter: hue-rotate(360deg); }
     }
-
     .container {
       max-width: 900px;
       padding: 4rem 2rem;
-      background: rgba(255 255 255 / 0.85);
+      background: rgba(255,255,255,0.85);
       border-radius: 15px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       backdrop-filter: blur(12px);
@@ -68,8 +59,6 @@
       transform: translateY(-10px);
       cursor: pointer;
     }
-
-    /* Animated gradient text with slow, smooth transitions */
     .animated-gradient-text {
       font-family: 'Open Sans', sans-serif;
       font-weight: 700;
@@ -91,7 +80,6 @@
       will-change: transform;
       margin: 0 0 1rem 0;
     }
-
     @keyframes rainbow-x {
       0% { background-position-x: 0%; }
       100% { background-position-x: 100%; }
@@ -104,7 +92,6 @@
       0% { filter: hue-rotate(0deg); }
       100% { filter: hue-rotate(360deg); }
     }
-
     p.lead {
       font-size: clamp(1.1rem, 2vw, 1.4rem);
       margin-bottom: 3rem;
@@ -114,7 +101,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     .btn-primary {
       background: linear-gradient(90deg, #bf9a6d, #d9bf93);
       border: none;
@@ -131,7 +117,6 @@
       box-shadow: 0 12px 20px rgba(217, 191, 147, 0.7);
       transform: translateY(-3px);
     }
-
     .wave {
       position: fixed;
       bottom: 0;
@@ -154,18 +139,31 @@
       }
     }
   </style>
-
+</head>
+<body>
+  <main>
+    <div class="container" id="content">
+      <h1 class="animated-gradient-text">Find Your Next Destination</h1>
+      <p class="lead">
+        Connect with Infinity...
+      </p>
+      <button class="btn-primary" id="nextBtn" type="button">Explore Now</button>
+    </div>
+    <div class="wave" aria-hidden="true"></div>
+  </main>
   <script>
-    const xmlData = 
-    <page>
-      <title>Find Your Next Destination</title>
-      <description>Connect with Infinity. Your Journry starts here...</description>
-      <cta>
-        <text>Explore Now</text>
-        <link>nextpage.html</link>
-      </cta>
-    </page>;
+    // XML Data
+    const xmlData = `
+      <page>
+        <title>Find Your Next Destination</title>
+        <description>Connect with Infinity...</description>
+        <cta>
+          <text>Explore Now</text>
+          <link>nextpage.html</link>
+        </cta>
+      </page>`;
 
+    // Load content from XML
     function loadContentFromXML() {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(xmlData, "application/xml");
@@ -181,11 +179,14 @@
       btn.dataset.link = ctaLink;
     }
 
+    // Initialize content
     loadContentFromXML();
 
+    // Button click event
     document.getElementById('nextBtn').addEventListener('click', () => {
       const link = document.getElementById('nextBtn').dataset.link || 'nextpage.html';
       window.location.href = link;
     });
   </script>
 </body>
+</html>
