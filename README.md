@@ -377,7 +377,7 @@
       <button id="exploreBtn" type="button" aria-label="Explore Now">Behold</button>
     </div>
   </section>
-
+<p></p>
   <section class="features" aria-label="Features built by Feshr">
     <article class="feature-image-card" tabindex="0" aria-label="Web Design Feature">
       <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Creative web design workspace" />
@@ -385,34 +385,34 @@
         <h3>Web Design</h3>
         <p>Creative, responsive, and user-centered designs that captivate your audience.</p>
       </div>
-    </article>
+    </article><p></p>
     <article class="feature-image-card" tabindex="0" aria-label="Web Development Feature">
       <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" />
       <div class="overlay">
         <h3>Web Development</h3>
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
-    </article>
+    </article><p></p>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Mind</h1>
       <p>Infinity and Beyond...</p>
       <button id="exploreBtn" type="button" aria-label="Explore Now">Acquire</button>
     </div>
-  </section>
+  </section><p></p>
     <article class="feature-image-card" tabindex="0" aria-label="SEO Optimization Feature">
       <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="SEO analytics dashboard" />
       <div class="overlay">
         <h3>SEO Optimization</h3><p>Boost your online visibility and drive organic traffic to your business.</p>
       </div>
-    </article>
+    </article><p></p>
     <article class="feature-image-card" tabindex="0" aria-label="Maintenance & Support Feature">
       <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Technical support team at work" />
       <div class="overlay">
         <h3>Maintenance & Support</h3>
         <p>Reliable support and maintenance to keep your website secure and up-to-date.</p>
       </div>
-    </article>
+    </article><p></p>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Intuitive</h1>
@@ -420,7 +420,7 @@
       <button id="exploreBtn" type="button" aria-label="Explore Now">Partner</button>
     </div>
   </section>
-  </section>
+  </section><p></p>
 </main>
 
 <div class="wave" aria-hidden="true"></div>
