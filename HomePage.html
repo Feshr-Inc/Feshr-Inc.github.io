@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <title>FluidBook - Creative & Fluid Apple-Inspired Design</title>
+  <title>FluidBook - Sleek, Creative & Fluid Design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
@@ -14,13 +14,12 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, #fcfdfe 0%, #e9f3fb 100%);
       color: #1d1d1f;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       scroll-behavior: smooth;
-      transition: background-color 0.5s ease, color 0.5s ease;
     }
 
     /* Header */
@@ -36,7 +35,6 @@
       align-items: center;
       padding: 1rem 2rem;
       z-index: 10000;
-      transition: background-color 0.3s ease;
     }
     .logo {
       font-family: 'Open Sans', sans-serif;
@@ -45,20 +43,12 @@
       letter-spacing: 0.05em;
       user-select: none;
       cursor: default;
-
-      /* Animated gradient text */
-      background: linear-gradient(270deg, #0071e3, #00c6ff, #4b0082, #8a2be2, #0071e3);
-      background-size: 1000% 1000%;
+      background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: colorShift 20s ease infinite;
+      background-clip: text;
+      color: transparent;
     }
-    @keyframes colorShift {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
-    }
-
     .menu-toggle {
       width: 28px;
       height: 22px;
@@ -136,26 +126,27 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      margin-bottom: 6rem;padding: 4rem 1rem 2rem;
+      margin-bottom: 6rem;
+      padding: 4rem 1rem 2rem;
     }
     .hero h1 {
       font-family: 'Open Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(3rem, 8vw, 6rem);
       letter-spacing: -0.02em;
-      background: conic-gradient(from 0deg, #0071e3, #00c6ff, #0071e3);
-      background-size: 200% 200%;
+      background: linear-gradient(270deg, #0071e3, #00c6ff, #4b0082, #8a2be2, #0071e3);
+      background-size: 1000% 1000%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: rainbow-x 15s ease-in-out infinite alternate;
+      animation: colorShift 20s ease infinite;
       user-select: none;
       margin-bottom: 1rem;
       line-height: 1.05;
-      transition: color 0.3s ease;
     }
-    @keyframes rainbow-x {
-      0% { background-position-x: 0%; }
-      100% { background-position-x: 100%; }
+    @keyframes colorShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
     }
     .hero p {
       font-size: clamp(1.4rem, 2.5vw, 1.8rem);
@@ -276,7 +267,8 @@
       font-size: 0.9rem;
       color: #6e6e73;
       font-family: 'Poppins', sans-serif;
-      user-select: none;}
+      user-select: none;
+    }
     footer .footer-container {
       max-width: 1100px;
       margin: 0 auto;
@@ -397,7 +389,9 @@
   </section>
 </main>
 
-<div class="wave" aria-hidden="true"></div><footer>
+<div class="wave" aria-hidden="true"></div>
+
+<footer>
   <div class="footer-container">
     <nav aria-label="Footer navigation">
       <a href="#home">Home</a>
