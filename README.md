@@ -429,6 +429,7 @@
     }
   });
 
+  
   document.addEventListener('click', e => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
       toggleMenu();
