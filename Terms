@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <title>Feshr - Terms and Conditions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #fafafa 0%, #f5f7fa 100%);
+      color: #1d1d1f;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255 255 255 / 0.95);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 10000;
+    }
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      user-select: none;
+      cursor: default;
+      background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-transform: uppercase;
+    }
+    .menu-toggle {
+      width: 28px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 11000;
+    }
+    .menu-toggle div {
+      height: 3.5px;
+      background: #0071e3;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+    }
+    .menu-toggle.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Dropdown menu */
+    nav.dropdown-menu {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: rgba(255 255 255 / 0.98);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      display: none;
+      flex-wrap: wrap;
+      padding: 1rem 2rem;
+      gap: 1rem;
+      justify-content: center;
+      z-index: 10500;
+      border-radius: 0 0 18px 18px;
+      backdrop-filter: saturate(180%) blur(20px);
+    }
+    nav.dropdown-menu.active {
+      display: flex;
+    }
+    nav.dropdown-menu a {
+      flex: 1 1 30%;
+      text-align: center;
+      padding: 0.75rem 0;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0071e3;
+      border-radius: 12px;
+      text-decoration: none;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav.dropdown-menu a:hover,
+    nav.dropdown-menu a:focus {
+      background-color: #0071e3;
+      color: white;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0,113,227,0.4);
+    }
+
+    /* Main content styling */
+    main {
+      padding: 100px 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-grow: 1;
+      color: #1d1d1f;
+    }
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #005bb5;
+      letter-spacing: 0.05em;
+    }
+    h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-top: 2.5rem;margin-bottom: 0.75rem;
+      color: #0071e3;
+    }
+    p {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer: subtle, minimal, blending with background */
+    footer {
+      background: transparent;
+      padding: 0.5rem 2rem;
+      font-size: 0.65rem;
+      color: #999999;
+      font-family: 'Lora', serif;
+      user-select: none;
+      text-align: center;
+      margin-top: auto;
+      box-shadow: none;
+    }
+    footer .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer nav a {
+      color: #999999;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    footer nav a:hover,
+    footer nav a:focus {
+      color: #0071e3;
+      outline: none;
+      text-decoration: underline;
+    }
+    footer p.copyright {
+      flex-basis: 100%;
+      margin-top: 0.5rem;
+      color: #bbbbbb;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        padding: 120px 1.5rem 3rem;
+      }
+      footer .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      footer nav {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 480px) {
+      main {
+        padding: 120px 1rem 2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      p, ul li {
+        font-size: 0.9rem;
+      }
+      header {
+        padding: 1rem;
+      }
+    }
+
+    /* Smooth gradient color shift for hero heading */
+    @keyframes colorShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" aria-label="Feshr Logo">Feshr</div>
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navMenu">
+    <div></div><div></div><div></div>
+  </div>
+  <nav class="dropdown-menu" id="navMenu" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="terms.html" aria-current="page">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Terms and Conditions</h1>
+
+  <p>These Terms and Conditions ("Agreement") govern your use of the Feshr website and services. Please read this Agreement carefully before using our site.</p>
+
+  <h2>A. Introduction</h2>
+  <p>By accessing or using Feshr, you agree to be bound by this Agreement. If you do not agree, please do not use our services.</p>
+
+  <h2>B. Use of Services</h2>
+  <p>You agree to use the services only for lawful purposes and in accordance with these terms.</p>
+
+  <h2>C. Intellectual Property</h2>
+  <p>All content, trademarks, and intellectual property on this site are owned by Feshr or its licensors. You may not use, copy, or distribute any content without prior permission.</p>
+
+  <h2>D. User Responsibilities</h2>
+  <ul>
+    <li>You must provide accurate information when creating accounts or using services.</li>
+    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+    <li>Prohibited activities include unauthorized access, harassment, and distribution of harmful content.</li>
+  </ul>
+
+  <h2>E. Limitation of Liability</h2>
+  <p>Feshr is provided "as is" without warranties of any kind. We are not liable for damages arising from use of the site.</p>
+
+  <h2>F. Changes to Terms</h2>
+  <p>We reserve the right to update these Terms at any time. Continued use after changes constitutes acceptance.</p> <h2>G. Governing Law</h2>
+  <p>This Agreement is governed by the laws of your jurisdiction.</p>
+
+  <h2>H. Contact Information</h2>
+  <p>If you have questions about these Terms, please contact us at <a href="mailto:contact@feshr.com">contact@feshr.com</a>.</p>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <nav aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p class="copyright">&copy; 2025 Feshr. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  function toggleMenu() {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!expanded));
+    navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    navMenu.setAttribute('aria-hidden', String(expanded));
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+  menuToggle.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+</script>
+
+</body>
+</html>
