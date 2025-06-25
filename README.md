@@ -2,10 +2,10 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <title>FluidBook - Sleek, Creative & Fluid Design</title>
+  <title>Feshr Inc. - Connect with Power... Connect With Infinity...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@900&family=Poppins:wght@400;600&family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     /* Reset */
     *, *::before, *::after {
@@ -37,10 +37,10 @@
       z-index: 10000;
     }
     .logo {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 0.05em;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
       user-select: none;
       cursor: default;
       background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
@@ -48,6 +48,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .menu-toggle {
       width: 28px;
@@ -125,39 +126,67 @@
 
     /* Hero Section */
     .hero {
+      position: relative;
       text-align: center;
       margin-bottom: 6rem;
-      padding: 4rem 1rem 2rem;
+      padding: 6rem 1rem 4rem;
+      overflow: hidden;
+      color: #1d1d1f;
     }
-    .hero h1 {
-      font-family: 'Open Sans', sans-serif;
+    /* Animated gradient background */
+    .hero::before {
+      content: "";
+      position: absolute;top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6, #005bb5);
+      background-size: 800% 800%;
+      animation: gradientShift 30s ease infinite;
+      filter: blur(100px);
+      opacity: 0.4;
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    /* Hero content animations */
+    #hero-content * {
+      opacity: 0;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+    #hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: clamp(3rem, 8vw, 6rem);
       letter-spacing: -0.02em;
-      background: linear-gradient(270deg, #0071e3, #00c6ff, #4b0082, #8a2be2, #0071e3);
-      background-size: 1000% 1000%;
+      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
+      background-size: 300% 100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: colorShift 20s ease infinite;
-      user-select: none;
-      margin-bottom: 1rem;
+      animation-name: fadeSlideIn;
+      animation-duration: 800ms;
+      animation-delay: 500ms;
+      margin-bottom: 0.5rem;
       line-height: 1.05;
+      text-transform: uppercase;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.15);
     }
-    @keyframes colorShift {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
-    }
-    .hero p {
-      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    #hero-content p {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.5rem);
       color: #4a4a4a;
-      max-width: 700px;
-      margin: 0 auto 3rem;
+      max-width: 400px;
+      margin: 0 auto 2rem;
       font-weight: 600;
-      line-height: 1.4;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      animation-name: fadeSlideIn;
+      animation-duration: 800ms;
+      animation-delay: 900ms;
     }
-    .btn-primary {
-      background: linear-gradient(90deg, #0071e3, #00c6ff);
+    #hero-content button {
+      background: linear-gradient(90deg, #0071e3, #0099e6);
       border: none;
       color: white;
       padding: 1.25rem 3.5rem;
@@ -168,10 +197,13 @@
       box-shadow: 0 12px 30px rgba(0, 113, 227, 0.5);
       transition: all 0.3s ease;
       user-select: none;
+      animation-name: fadeSlideIn;
+      animation-duration: 800ms;
+      animation-delay: 1300ms;
     }
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background: linear-gradient(90deg, #005bb5, #0099e6);
+    #hero-content button:hover,
+    #hero-content button:focus {
+      background: linear-gradient(90deg, #005bb5, #0071e3);
       box-shadow: 0 16px 40px rgba(0, 91, 181, 0.7);
       transform: translateY(-5px);
       outline: none;
@@ -233,7 +265,7 @@
     }
     .feature-image-card h3 {
       margin: 0 0 0.5rem;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-size: 1.6rem;
       line-height: 1.2;
@@ -243,9 +275,7 @@
       font-size: 1rem;
       line-height: 1.4;
       font-weight: 500;
-    }
-
-    /* Wave Background */
+    }/* Wave Background */
     .wave {
       position: fixed;
       bottom: 0;
@@ -318,14 +348,31 @@
       .features {
         grid-template-columns: 1fr;
       }
-      .hero h1 {
+      #hero-content h1 {
         font-size: clamp(2rem, 10vw, 4rem);
       }
-      .hero p {
-        font-size: 1.2rem;
+      #hero-content p {
+        font-size: 1rem;
       }
       header {
         padding: 1rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes gradientShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -333,7 +380,7 @@
 <body>
 
 <header>
-  <div class="logo" aria-label="FluidBook Logo">FluidBook</div>
+  <div class="logo" aria-label="Feshr Inc. Logo">Feshr Inc.</div>
   <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navMenu">
     <div></div><div></div><div></div>
   </div>
@@ -352,12 +399,14 @@
 
 <main>
   <section class="hero" id="home" tabindex="0">
-    <h1>Find Your Next Destination</h1>
-    <p>Connect with Infinity...</p>
-    <button class="btn-primary" id="exploreBtn" type="button" aria-label="Explore Now">Explore Now</button>
+    <div id="hero-content">
+      <h1>Innovate Beyond Limits</h1>
+      <p>Crafting Digital Experiences That Inspire</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Explore Now</button>
+    </div>
   </section>
 
-  <section class="features" aria-label="Features built by FluidBook">
+  <section class="features" aria-label="Features built by Feshr Inc.">
     <article class="feature-image-card" tabindex="0" aria-label="Web Design Feature">
       <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Creative web design workspace" />
       <div class="overlay">
@@ -366,8 +415,7 @@
       </div>
     </article>
     <article class="feature-image-card" tabindex="0" aria-label="Web Development Feature">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" />
-      <div class="overlay">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" /><div class="overlay">
         <h3>Web Development</h3>
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
@@ -404,7 +452,7 @@
       <a href="#privacy">Privacy Policy</a>
       <a href="#terms">Terms of Service</a>
     </nav>
-    <p class="copyright">&copy; 2025 FluidBook. All rights reserved.</p>
+    <p class="copyright">&copy; 2025 Feshr Inc. All rights reserved.</p>
   </div>
 </footer>
 
@@ -429,7 +477,6 @@
     }
   });
 
-  
   document.addEventListener('click', e => {
     if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
       toggleMenu();
