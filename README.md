@@ -372,9 +372,9 @@
 <main>
   <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Connect With Power</h1>
-      <p>Much more to behold than grasp...</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
+      <h1>Power</h1>
+      <p>More to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Behold</button>
     </div>
   </section>
 
@@ -393,6 +393,13 @@
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
     </article>
+    <section class="hero" id="home" tabindex="0">
+    <div id="hero-content">
+      <h1>Mind</h1>
+      <p>Infinity and Beyond...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Acquire</button>
+    </div>
+  </section>
     <article class="feature-image-card" tabindex="0" aria-label="SEO Optimization Feature">
       <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="SEO analytics dashboard" />
       <div class="overlay">
@@ -406,6 +413,13 @@
         <p>Reliable support and maintenance to keep your website secure and up-to-date.</p>
       </div>
     </article>
+    <section class="hero" id="home" tabindex="0">
+    <div id="hero-content">
+      <h1>Intuitive</h1>
+      <p>As far as you can see...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Partner</button>
+    </div>
+  </section>
   </section>
 </main>
 
