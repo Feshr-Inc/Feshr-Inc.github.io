@@ -392,7 +392,7 @@
         <h3>Web Development</h3>
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
-    </article><p></p>
+    </article>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Mind</h1>
@@ -405,14 +405,14 @@
       <div class="overlay">
         <h3>SEO Optimization</h3><p>Boost your online visibility and drive organic traffic to your business.</p>
       </div>
-    </article><p></p>
+    </article>
     <article class="feature-image-card" tabindex="0" aria-label="Maintenance & Support Feature">
       <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Technical support team at work" />
       <div class="overlay">
         <h3>Maintenance & Support</h3>
         <p>Reliable support and maintenance to keep your website secure and up-to-date.</p>
       </div>
-    </article><p></p>
+    </article>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Intuitive</h1>
