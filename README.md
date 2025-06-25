@@ -1,11 +1,11 @@
-
+<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <title>Feshr - Connect with Power... Connect With Infinity...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@900&family=Poppins:wght@400;600&family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer and other text -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     /* Reset */
     *, *::before, *::after {
@@ -13,8 +13,8 @@
     }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e9f3fb 0%, #cde6fd 100%);
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #fafafa 0%, #f5f7fa 100%);
       color: #1d1d1f;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -40,10 +40,10 @@
       z-index: 10000;
     }
     .logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.6rem; /* Reduced size */
-      letter-spacing: 0.1em;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
       user-select: none;
       cursor: default;
       background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
@@ -52,6 +52,7 @@
       background-clip: text;
       color: transparent;
       text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-transform: uppercase;
     }
     .menu-toggle {
       width: 28px;
@@ -135,27 +136,33 @@
       margin-bottom: 6rem;
       padding: 6rem 1rem 4rem;
       overflow: visible;
-      color: #1d1d1f;
-    }
-    #hero-content h1 {font-family: 'Oswald', sans-serif; /* Changed font for hero */
+      color: #1d1d1f;}
+    #hero-content h1 {
+      font-family: 'Merriweather', serif;
       font-weight: 700;
       font-size: clamp(3rem, 8vw, 6rem);
-      letter-spacing: 0.1em;
-      color: #005bb5;
-      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorShift 8s ease infinite alternate;
       margin-bottom: 0.5rem;
       line-height: 1.05;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+      text-transform: uppercase;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-position 8s ease;
     }
     #hero-content p {
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Lora', serif;
       font-size: clamp(1rem, 2vw, 1.5rem);
       color: #4a4a4a;
       max-width: 400px;
       margin: 0 auto 2rem;
-      font-weight: 600;
+      font-weight: 400;
       font-style: italic;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
     }
     #hero-content button {
       background: linear-gradient(90deg, #0071e3, #0099e6);
@@ -234,16 +241,17 @@
     }
     .feature-image-card h3 {
       margin: 0 0 0.5rem;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Merriweather', serif;
       font-weight: 700;
       font-size: 1.6rem;
       line-height: 1.2;
     }
     .feature-image-card p {
       margin: 0;
+      font-family: 'Lora', serif;
       font-size: 1rem;
       line-height: 1.4;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     /* Wave Background */
@@ -260,30 +268,34 @@
       z-index: 0;
     }
 
-    /* Footer - very small, sleek, organized */
+    /* Footer: subtle, minimal, blending with background */
     footer {
-      background: linear-gradient(135deg, #e9f3fb 0%, #cde6fd 100%);
-      border-top: 1px solid #b3d1f7;
-      padding: 0.75rem 2rem;
-      font-size: 0.7rem;
-      color: #4a4a4a;
-      font-family: 'Poppins', sans-serif;
+      background: transparent;
+      padding: 0.5rem 2rem;
+      font-size: 0.65rem;
+      color: #999999;font-family: 'Lora', serif;
       user-select: none;
-      box-shadow: inset 0 1px 0 rgba(255 255 255 / 0.6);
+      text-align: center;
+      margin-top: auto;
+      box-shadow: none;
+    }
+    footer .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;}
+      justify-content: center;
+      gap: 1rem;
+    }
     footer nav {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
     }
     footer nav a {
-      color: #4a4a4a;
+      color: #999999;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 400;
       transition: color 0.3s ease;
     }
     footer nav a:hover,
@@ -293,12 +305,11 @@
       text-decoration: underline;
     }
     footer p.copyright {
-      color: #2a2a2a;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      margin: 0;
       flex-basis: 100%;
-      text-align: center;
+      margin-top: 0.5rem;
+      color: #bbbbbb;
+      font-weight: 400;
+      letter-spacing: 0.02em;
     }
 
     /* Responsive */
@@ -306,8 +317,9 @@
       .features {
         grid-template-columns: 1fr 1fr;
       }
-      footer {
+      footer .footer-container {
         flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
       }
       footer nav {
@@ -329,7 +341,7 @@
       }
     }
 
-    /* Animations */
+    /* Smooth gradient color shift for hero heading */
     @keyframes colorShift {
       0% {background-position:0% 50%;}
       50% {background-position:100% 50%;}
@@ -360,9 +372,9 @@
 <main>
   <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Innovate Beyond Limits</h1>
-      <p>Crafting Digital Experiences That Inspire</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Explore Now</button>
+      <h1>Connect With Power</h1>
+      <p>Much more to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
     </div>
   </section>
 
@@ -384,8 +396,7 @@
     <article class="feature-image-card" tabindex="0" aria-label="SEO Optimization Feature">
       <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="SEO analytics dashboard" />
       <div class="overlay">
-        <h3>SEO Optimization</h3>
-        <p>Boost your online visibility and drive organic traffic to your business.</p>
+        <h3>SEO Optimization</h3><p>Boost your online visibility and drive organic traffic to your business.</p>
       </div>
     </article>
     <article class="feature-image-card" tabindex="0" aria-label="Maintenance & Support Feature">
@@ -398,7 +409,9 @@
   </section>
 </main>
 
-<div class="wave" aria-hidden="true"></div><footer>
+<div class="wave" aria-hidden="true"></div>
+
+<footer>
   <div class="footer-container">
     <nav aria-label="Footer navigation">
       <a href="#home">Home</a>
