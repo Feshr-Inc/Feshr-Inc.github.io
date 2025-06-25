@@ -385,7 +385,7 @@
         <h3>Web Design</h3>
         <p>Creative, responsive, and user-centered designs that captivate your audience.</p>
       </div>
-    </article><p></p>
+    </article>
     <article class="feature-image-card" tabindex="0" aria-label="Web Development Feature">
       <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" />
       <div class="overlay">
@@ -393,6 +393,7 @@
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
     </article>
+    <p></p>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Mind</h1>
@@ -412,7 +413,7 @@
         <h3>Maintenance & Support</h3>
         <p>Reliable support and maintenance to keep your website secure and up-to-date.</p>
       </div>
-    </article>
+    </article><p></p>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Intuitive</h1>
