@@ -2,10 +2,10 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <title>FluidBook - Sleek, Creative & Fluid Design</title>
+  <title>Feshr - Connect with Power... Connect With Infinity...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer and other text -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     /* Reset */
     *, *::before, *::after {
@@ -13,13 +13,16 @@
     }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fcfdfe 0%, #e9f3fb 100%);
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #fafafa 0%, #f5f7fa 100%);
       color: #1d1d1f;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Header */
@@ -37,10 +40,10 @@
       z-index: 10000;
     }
     .logo {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 0.05em;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
       user-select: none;
       cursor: default;
       background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
@@ -48,6 +51,8 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-transform: uppercase;
     }
     .menu-toggle {
       width: 28px;
@@ -114,50 +119,53 @@
       box-shadow: 0 4px 12px rgba(0,113,227,0.4);
     }
 
-    /* Main padding to avoid header overlap */
+    /* Main padding */
     main {
       padding-top: 80px;
       max-width: 1100px;
       margin: 0 auto;
       padding-left: 1rem;
       padding-right: 1rem;
+      flex-grow: 1;
     }
 
     /* Hero Section */
     .hero {
+      position: relative;
       text-align: center;
       margin-bottom: 6rem;
-      padding: 4rem 1rem 2rem;
-    }
-    .hero h1 {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 900;
+      padding: 6rem 1rem 4rem;
+      overflow: visible;
+      color: #1d1d1f;}
+    #hero-content h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
       font-size: clamp(3rem, 8vw, 6rem);
-      letter-spacing: -0.02em;
-      background: linear-gradient(270deg, #0071e3, #00c6ff, #4b0082, #8a2be2, #0071e3);
-      background-size: 1000% 1000%;
+      letter-spacing: 0.12em;
+      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
+      background-size: 300% 100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: colorShift 20s ease infinite;
-      user-select: none;
-      margin-bottom: 1rem;
+      animation: colorShift 8s ease infinite alternate;
+      margin-bottom: 0.5rem;
       line-height: 1.05;
+      text-transform: uppercase;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-position 8s ease;
     }
-    @keyframes colorShift {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
-    }
-    .hero p {
-      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    #hero-content p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1rem, 2vw, 1.5rem);
       color: #4a4a4a;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      font-weight: 600;
-      line-height: 1.4;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
     }
-    .btn-primary {
-      background: linear-gradient(90deg, #0071e3, #00c6ff);
+    #hero-content button {
+      background: linear-gradient(90deg, #0071e3, #0099e6);
       border: none;
       color: white;
       padding: 1.25rem 3.5rem;
@@ -169,9 +177,9 @@
       transition: all 0.3s ease;
       user-select: none;
     }
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background: linear-gradient(90deg, #005bb5, #0099e6);
+    #hero-content button:hover,
+    #hero-content button:focus {
+      background: linear-gradient(90deg, #005bb5, #0071e3);
       box-shadow: 0 16px 40px rgba(0, 91, 181, 0.7);
       transform: translateY(-5px);
       outline: none;
@@ -233,16 +241,17 @@
     }
     .feature-image-card h3 {
       margin: 0 0 0.5rem;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Merriweather', serif;
       font-weight: 700;
       font-size: 1.6rem;
       line-height: 1.2;
     }
     .feature-image-card p {
       margin: 0;
+      font-family: 'Lora', serif;
       font-size: 1rem;
       line-height: 1.4;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     /* Wave Background */
@@ -259,45 +268,48 @@
       z-index: 0;
     }
 
-    /* Footer */
+    /* Footer: subtle, minimal, blending with background */
     footer {
-      background: #f5f5f7;
-      border-top: 1px solid #d2d2d7;
-      padding: 3rem 2rem;
-      font-size: 0.9rem;
-      color: #6e6e73;
-      font-family: 'Poppins', sans-serif;
+      background: transparent;
+      padding: 0.5rem 2rem;
+      font-size: 0.65rem;
+      color: #999999;font-family: 'Lora', serif;
       user-select: none;
+      text-align: center;
+      margin-top: auto;
+      box-shadow: none;
     }
     footer .footer-container {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
+      justify-content: center;
+      gap: 1rem;
     }
     footer nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1rem;
     }
     footer nav a {
-      color: #6e6e73;
+      color: #999999;
       text-decoration: none;
+      font-weight: 400;
       transition: color 0.3s ease;
-      font-weight: 600;
     }
     footer nav a:hover,
     footer nav a:focus {
       color: #0071e3;
       outline: none;
+      text-decoration: underline;
     }
     footer p.copyright {
       flex-basis: 100%;
-      text-align: center;
-      margin-top: 1rem;
-      color: #a1a1a6;
+      margin-top: 0.5rem;
+      color: #bbbbbb;
+      font-weight: 400;
+      letter-spacing: 0.02em;
     }
 
     /* Responsive */
@@ -308,7 +320,7 @@
       footer .footer-container {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
       }
       footer nav {
         justify-content: center;
@@ -318,22 +330,29 @@
       .features {
         grid-template-columns: 1fr;
       }
-      .hero h1 {
+      #hero-content h1 {
         font-size: clamp(2rem, 10vw, 4rem);
       }
-      .hero p {
-        font-size: 1.2rem;
+      #hero-content p {
+        font-size: 1rem;
       }
       header {
         padding: 1rem;
       }
+    }
+
+    /* Smooth gradient color shift for hero heading */
+    @keyframes colorShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo" aria-label="FluidBook Logo">FluidBook</div>
+  <div class="logo" aria-label="Feshr Logo">Feshr</div>
   <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navMenu">
     <div></div><div></div><div></div>
   </div>
@@ -352,12 +371,14 @@
 
 <main>
   <section class="hero" id="home" tabindex="0">
-    <h1>Find Your Next Destination</h1>
-    <p>Connect with Infinity...</p>
-    <button class="btn-primary" id="exploreBtn" type="button" aria-label="Explore Now">Explore Now</button>
+    <div id="hero-content">
+      <h1>Connect With Power</h1>
+      <p>Much more to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
+    </div>
   </section>
 
-  <section class="features" aria-label="Features built by FluidBook">
+  <section class="features" aria-label="Features built by Feshr">
     <article class="feature-image-card" tabindex="0" aria-label="Web Design Feature">
       <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Creative web design workspace" />
       <div class="overlay">
@@ -375,8 +396,7 @@
     <article class="feature-image-card" tabindex="0" aria-label="SEO Optimization Feature">
       <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="SEO analytics dashboard" />
       <div class="overlay">
-        <h3>SEO Optimization</h3>
-        <p>Boost your online visibility and drive organic traffic to your business.</p>
+        <h3>SEO Optimization</h3><p>Boost your online visibility and drive organic traffic to your business.</p>
       </div>
     </article>
     <article class="feature-image-card" tabindex="0" aria-label="Maintenance & Support Feature">
@@ -404,7 +424,7 @@
       <a href="#privacy">Privacy Policy</a>
       <a href="#terms">Terms of Service</a>
     </nav>
-    <p class="copyright">&copy; 2025 FluidBook. All rights reserved.</p>
+    <p class="copyright">&copy; 2025 Feshr. All rights reserved.</p>
   </div>
 </footer>
 
