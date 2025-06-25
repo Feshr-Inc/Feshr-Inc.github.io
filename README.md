@@ -1,8 +1,8 @@
-
+<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <title>Feshr Inc. - Connect with Power... Connect With Infinity...</title>
+  <title>Feshr - Connect with Power... Connect With Infinity...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@900&family=Poppins:wght@400;600&family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
@@ -14,12 +14,15 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fcfdfe 0%, #e9f3fb 100%);
+      background: linear-gradient(135deg, #e9f3fb 0%, #cde6fd 100%);
       color: #1d1d1f;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Header */
@@ -39,7 +42,7 @@
     .logo {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 1.6rem; /* Reduced size */
       letter-spacing: 0.1em;
       user-select: none;
       cursor: default;
@@ -115,13 +118,14 @@
       box-shadow: 0 4px 12px rgba(0,113,227,0.4);
     }
 
-    /* Main padding to avoid header overlap */
+    /* Main padding */
     main {
       padding-top: 80px;
       max-width: 1100px;
       margin: 0 auto;
       padding-left: 1rem;
       padding-right: 1rem;
+      flex-grow: 1;
     }
 
     /* Hero Section */
@@ -130,47 +134,18 @@
       text-align: center;
       margin-bottom: 6rem;
       padding: 6rem 1rem 4rem;
-      overflow: hidden;
+      overflow: visible;
       color: #1d1d1f;
     }
-    /* Animated gradient background */
-    .hero::before {
-      content: "";
-      position: absolute;top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6, #005bb5);
-      background-size: 800% 800%;
-      animation: gradientShift 30s ease infinite;
-      filter: blur(100px);
-      opacity: 0.4;
-      z-index: -1;
-      border-radius: 50%;
-    }
-
-    /* Hero content animations */
-    #hero-content * {
-      opacity: 0;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-in-out;
-    }
-    #hero-content h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+    #hero-content h1 {font-family: 'Oswald', sans-serif; /* Changed font for hero */
+      font-weight: 700;
       font-size: clamp(3rem, 8vw, 6rem);
-      letter-spacing: -0.02em;
-      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation-name: fadeSlideIn;
-      animation-duration: 800ms;
-      animation-delay: 500ms;
+      letter-spacing: 0.1em;
+      color: #005bb5;
+      text-transform: uppercase;
       margin-bottom: 0.5rem;
       line-height: 1.05;
-      text-transform: uppercase;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
     }
     #hero-content p {
       font-family: 'Raleway', sans-serif;
@@ -181,9 +156,6 @@
       font-weight: 600;
       font-style: italic;
       letter-spacing: 0.05em;
-      animation-name: fadeSlideIn;
-      animation-duration: 800ms;
-      animation-delay: 900ms;
     }
     #hero-content button {
       background: linear-gradient(90deg, #0071e3, #0099e6);
@@ -197,9 +169,6 @@
       box-shadow: 0 12px 30px rgba(0, 113, 227, 0.5);
       transition: all 0.3s ease;
       user-select: none;
-      animation-name: fadeSlideIn;
-      animation-duration: 800ms;
-      animation-delay: 1300ms;
     }
     #hero-content button:hover,
     #hero-content button:focus {
@@ -275,7 +244,9 @@
       font-size: 1rem;
       line-height: 1.4;
       font-weight: 500;
-    }/* Wave Background */
+    }
+
+    /* Wave Background */
     .wave {
       position: fixed;
       bottom: 0;
@@ -289,45 +260,45 @@
       z-index: 0;
     }
 
-    /* Footer */
+    /* Footer - very small, sleek, organized */
     footer {
-      background: #f5f5f7;
-      border-top: 1px solid #d2d2d7;
-      padding: 3rem 2rem;
-      font-size: 0.9rem;
-      color: #6e6e73;
+      background: linear-gradient(135deg, #e9f3fb 0%, #cde6fd 100%);
+      border-top: 1px solid #b3d1f7;
+      padding: 0.75rem 2rem;
+      font-size: 0.7rem;
+      color: #4a4a4a;
       font-family: 'Poppins', sans-serif;
       user-select: none;
-    }
-    footer .footer-container {
-      max-width: 1100px;
-      margin: 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255 255 255 / 0.6);
       display: flex;
+      justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-    }
+      gap: 1rem;}
     footer nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1rem;
     }
     footer nav a {
-      color: #6e6e73;
+      color: #4a4a4a;
       text-decoration: none;
-      transition: color 0.3s ease;
       font-weight: 600;
+      transition: color 0.3s ease;
     }
     footer nav a:hover,
     footer nav a:focus {
       color: #0071e3;
       outline: none;
+      text-decoration: underline;
     }
     footer p.copyright {
+      color: #2a2a2a;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin: 0;
       flex-basis: 100%;
       text-align: center;
-      margin-top: 1rem;
-      color: #a1a1a6;
     }
 
     /* Responsive */
@@ -335,10 +306,9 @@
       .features {
         grid-template-columns: 1fr 1fr;
       }
-      footer .footer-container {
+      footer {
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
       }
       footer nav {
         justify-content: center;
@@ -360,27 +330,17 @@
     }
 
     /* Animations */
-    @keyframes gradientShift {
+    @keyframes colorShift {
       0% {background-position:0% 50%;}
       50% {background-position:100% 50%;}
       100% {background-position:0% 50%;}
-    }
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo" aria-label="Feshr Inc. Logo">Feshr Inc.</div>
+  <div class="logo" aria-label="Feshr Logo">Feshr</div>
   <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navMenu">
     <div></div><div></div><div></div>
   </div>
@@ -406,7 +366,7 @@
     </div>
   </section>
 
-  <section class="features" aria-label="Features built by Feshr Inc.">
+  <section class="features" aria-label="Features built by Feshr">
     <article class="feature-image-card" tabindex="0" aria-label="Web Design Feature">
       <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Creative web design workspace" />
       <div class="overlay">
@@ -415,7 +375,8 @@
       </div>
     </article>
     <article class="feature-image-card" tabindex="0" aria-label="Web Development Feature">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" /><div class="overlay">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" />
+      <div class="overlay">
         <h3>Web Development</h3>
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
@@ -437,9 +398,7 @@
   </section>
 </main>
 
-<div class="wave" aria-hidden="true"></div>
-
-<footer>
+<div class="wave" aria-hidden="true"></div><footer>
   <div class="footer-container">
     <nav aria-label="Footer navigation">
       <a href="#home">Home</a>
@@ -452,7 +411,7 @@
       <a href="#privacy">Privacy Policy</a>
       <a href="#terms">Terms of Service</a>
     </nav>
-    <p class="copyright">&copy; 2025 Feshr Inc. All rights reserved.</p>
+    <p class="copyright">&copy; 2025 Feshr. All rights reserved.</p>
   </div>
 </footer>
 
