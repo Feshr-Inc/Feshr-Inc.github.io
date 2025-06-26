@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <title>Feshr Inc. - Legal Information</title>
@@ -7,7 +7,7 @@
   <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer and other text -->
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
-    /* Reset and base styles */
+    /* Reset */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -40,7 +40,7 @@
     .logo {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       letter-spacing: 0.12em;
       user-select: none;
       cursor: default;
@@ -51,6 +51,13 @@
       color: transparent;
       text-transform: uppercase;
       text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding-right: 1rem;
+      border-right: 1.5px solid rgba(0, 113, 227, 0.2);
+    }
+    .logo:hover,
+    .logo:focus {
+      border-color: rgba(0, 113, 227, 0.5);
+      outline: none;
     }
     .menu-toggle {
       width: 28px;
@@ -83,7 +90,7 @@
       width: 100%;
       background: rgba(255 255 255 / 0.98);
       box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      display: none;
+      display: flex;
       flex-wrap: wrap;
       padding: 1rem 2rem;
       gap: 1rem;
@@ -91,9 +98,15 @@
       z-index: 10500;
       border-radius: 0 0 18px 18px;
       backdrop-filter: saturate(180%) blur(20px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
     nav.dropdown-menu.active {
-      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
     nav.dropdown-menu a {
       flex: 1 1 30%;
@@ -117,7 +130,7 @@
     }
     main {
       padding-top: 80px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto 4rem;
       padding-left: 1rem;
       padding-right: 1rem;
@@ -132,22 +145,22 @@
       color: #005bb5;
       margin-top: 2rem;
       margin-bottom: 1rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
     main h1 {
-      font-size: 2rem;
+      font-size: clamp(2rem, 4vw, 2.8rem);
       border-bottom: 3px solid #0071e3;
       padding-bottom: 0.3rem;
     }
     main h2 {
-      font-size: 1.4rem;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
       margin-top: 2.5rem;
       margin-bottom: 0.75rem;
     }
     main p {
       margin-bottom: 1rem;
-      font-size: 1rem;
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: #4a4a4a;
     }
     main ul {
@@ -320,5 +333,4 @@
 </script>
 
 </body>
-        </html>
-  
+</html>
