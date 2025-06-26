@@ -446,7 +446,6 @@
       <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
     </div>
   </section>
-</main>
 
 <div class="wave" aria-hidden="true"></div>
 
@@ -575,5 +574,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </script>
 
-</body>
-</html>
