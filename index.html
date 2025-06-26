@@ -90,7 +90,7 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Dropdown menu */
+    /* Dropdown menu with fluid fade and slide */
     nav.dropdown-menu {
       position: fixed;
       top: 60px;
@@ -98,7 +98,7 @@
       width: 100%;
       background: rgba(255 255 255 / 0.98);
       box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      display: none;
+      display: flex;
       flex-wrap: wrap;
       padding: 1rem 2rem;
       gap: 1rem;
@@ -106,9 +106,17 @@
       z-index: 10500;
       border-radius: 0 0 18px 18px;
       backdrop-filter: saturate(180%) blur(20px);
+
+      /* Hidden state */
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
     nav.dropdown-menu.active {
-      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
     nav.dropdown-menu a {
       flex: 1 1 30%;
@@ -499,85 +507,91 @@
     }
   });
 
+  // Close menu on scroll with fluid animation
+  window.addEventListener('scroll', () => {
+    if (navMenu.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+
   exploreBtn.addEventListener('click', () => {
     document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
   });
 
   const typingText = document.getElementById('typing-text');
 
-const textSets = [
-  [
-    "In a world where...\nEveryone needs to be creative...\nthe mind is the source of all power.",
-    "In you is something Powerful...",
-    "As far as you can behold...\nwith the Power of your Mind, \nFar and beyond to grasp...",
-    "As far as your eyes can see...",
-    "For Creativity...",
-    "Is As Far Your Eyes Can See!!!"
-  ],
-  [
-    "Creativity flows like a river...",
-    "The mind unlocks endless possibilities...",
-    "Power lies within your imagination...",
-    "Reach beyond horizons...",
-    "See what others cannot see...",
-    "And create the unseen."
-  ],
-  [
-    "Every idea starts with a spark...",
-    "The mind is the ultimate power source...",
-    "Within you is infinite potential...",
-    "Look beyond the obvious...",
-    "Grasp the intangible...",
-    "And make it real."
-  ]
-];
+  const textSets = [
+    [
+      "In a world where...\nEveryone needs to be creative...\nthe mind is the source of all power.",
+      "In you is something Powerful...",
+      "As far as you can behold...\nwith the Power of your Mind, \nFar and beyond to grasp...",
+      "As far as your eyes can see...",
+      "For Creativity...",
+      "Is As Far Your Eyes Can See!!!"
+    ],
+    [
+      "Creativity flows like a river...",
+      "The mind unlocks endless possibilities...",
+      "Power lies within your imagination...",
+      "Reach beyond horizons...",
+      "See what others cannot see...",
+      "And create the unseen."
+    ],
+    [
+      "Every idea starts with a spark...",
+      "The mind is the ultimate power source...",
+      "Within you is infinite potential...",
+      "Look beyond the obvious...",
+      "Grasp the intangible...",
+      "And make it real."
+    ]
+  ];
 
-const lines = textSets[Math.floor(Math.random() * textSets.length)];
+  const lines = textSets[Math.floor(Math.random() * textSets.length)];
 
-let lineIndex = 0;
-let charIndex = 0;
-let typingSpeed = 135;
-let erasingSpeed = 60;
-let delayBetweenLines = 1800;
+  let lineIndex = 0;
+  let charIndex = 0;
+  let typingSpeed = 135;
+  let erasingSpeed = 60;
+  let delayBetweenLines = 1800;
 
-function type() {
-  if (charIndex < lines[lineIndex].length) {
-    let currentChar = lines[lineIndex].charAt(charIndex);
-    if (currentChar === '\n') {
-      typingText.innerHTML += '<br>';
+  function type() {
+    if (charIndex < lines[lineIndex].length) {
+      let currentChar = lines[lineIndex].charAt(charIndex);
+      if (currentChar === '\n') {
+        typingText.innerHTML += '<br>';
+      } else {
+        typingText.innerHTML += currentChar;
+      }
+      charIndex++;
+      setTimeout(type, typingSpeed);
     } else {
-      typingText.innerHTML += currentChar;
+      if (lineIndex === lines.length - 1) {
+        return;
+      }
+      setTimeout(erase, delayBetweenLines);
     }
-    charIndex++;
-    setTimeout(type, typingSpeed);
-  } else {
-    if (lineIndex === lines.length - 1) {
-      return;
-    }
-    setTimeout(erase, delayBetweenLines);
   }
-}
 
-function erase() {
-  if (charIndex > 0) {
-    let currentText = typingText.innerHTML;
-    if (currentText.endsWith('<br>')) {
-      typingText.innerHTML = currentText.slice(0, -4);
+  function erase() {
+    if (charIndex > 0) {
+      let currentText = typingText.innerHTML;
+      if (currentText.endsWith('<br>')) {
+        typingText.innerHTML = currentText.slice(0, -4);
+      } else {
+        typingText.innerHTML = currentText.slice(0, -1);
+      }
+      charIndex--;
+      setTimeout(erase, erasingSpeed);
     } else {
-      typingText.innerHTML = currentText.slice(0, -1);
+      lineIndex++;
+      setTimeout(type, typingSpeed);
     }
-    charIndex--;
-    setTimeout(erase, erasingSpeed);
-  } else {
-    lineIndex++;
-    setTimeout(type, typingSpeed);
   }
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(type, 800);
-});
-
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(type, 800);
+  });
 </script>
 
 </body>
