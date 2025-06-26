@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
@@ -39,10 +39,10 @@
       padding: 1rem 2rem;
       z-index: 10000;
     }
-    .logo {
+   .logo {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 1.2rem; /* or your preferred size */
       letter-spacing: 0.12em;
       user-select: none;
       cursor: default;
@@ -51,9 +51,11 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-transform: uppercase;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      /* DO NOT include background-color, box-shadow, border-radius, or padding here */
     }
+
     .menu-toggle {
       width: 28px;
       height: 22px;
@@ -110,6 +112,7 @@
       text-decoration: none;
       user-select: none;
       transition: background-color 0.3s ease, color 0.3s ease;
+      word-break: break-word;
     }
     nav.dropdown-menu a:hover,
     nav.dropdown-menu a:focus {
@@ -129,23 +132,25 @@
       flex-grow: 1;
     }
 
-    /* Hero Section */
     .hero {
       position: relative;
       text-align: center;
       margin-bottom: 6rem;
       padding: 6rem 1rem 4rem;
       overflow: visible;
-      color: #1d1d1f;}
+      color: #1d1d1f;
+    }
     #hero-content h1 {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: clamp(3rem, 8vw, 6rem);
+      font-size: 1.2rem; /* Reduced section heading size */
       letter-spacing: 0.12em;
       background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
       background-size: 300% 100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
       animation: colorShift 8s ease infinite alternate;
       margin-bottom: 0.5rem;
       line-height: 1.05;
@@ -155,35 +160,55 @@
     }
     #hero-content p {
       font-family: 'Lora', serif;
-      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-size: 1rem;
       color: #4a4a4a;
       max-width: 400px;
       margin: 0 auto 2rem;
       font-weight: 400;
-      font-style: italic;
+      
       letter-spacing: 0.03em;
       line-height: 1.6;
+      /* Allow wrapping and prevent overflow */
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+      min-height: 4.5em; /* reserve vertical space */
     }
-    #hero-content button {
-      background: linear-gradient(90deg, #0071e3, #0099e6);
-      border: none;
-      color: white;
-      padding: 1.25rem 3.5rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      border-radius: 9999px;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0, 113, 227, 0.5);
-      transition: all 0.3s ease;
-      user-select: none;
-    }
-    #hero-content button:hover,
-    #hero-content button:focus {
-      background: linear-gradient(90deg, #005bb5, #0071e3);
-      box-shadow: 0 16px 40px rgba(0, 91, 181, 0.7);
-      transform: translateY(-5px);
-      outline: none;
-    }
+   #hero-content button {
+  background: linear-gradient(135deg, #005bb5, #0071e3);
+  border: none;
+  color: white;
+  padding: 0.4rem 1.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  user-select: none;
+  letter-spacing: 0.04em;
+  font-family: 'Merriweather', serif;
+  min-width: 130px;
+  display: inline-block;
+  text-align: center;
+  /* Soft inner shadow for subtle depth */
+  box-shadow:
+    inset 0 -3px 6px rgba(255, 255, 255, 0.2),
+    0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+#hero-content button:hover,
+#hero-content button:focus {
+  background: linear-gradient(135deg, #0071e3, #0099e6);
+  box-shadow:
+    inset 0 -3px 6px rgba(255, 255, 255, 0.3),
+    0 6px 20px rgba(0, 113, 227, 0.5);
+  transform: translateY(-3px) scale(1.05);
+  outline: none;
+}
+
+
 
     /* Features Image Grid with Overlay */
     .features {
@@ -273,7 +298,8 @@
       background: transparent;
       padding: 0.5rem 2rem;
       font-size: 0.65rem;
-      color: #999999;font-family: 'Lora', serif;
+      color: #999999;
+      font-family: 'Lora', serif;
       user-select: none;
       text-align: center;
       margin-top: auto;
@@ -330,12 +356,7 @@
       .features {
         grid-template-columns: 1fr;
       }
-      #hero-content h1 {
-        font-size: clamp(2rem, 10vw, 4rem);
-      }
-      #hero-content p {
-        font-size: 1rem;
-      }
+      
       header {
         padding: 1rem;
       }
@@ -372,12 +393,12 @@
 <main>
   <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Power</h1>
-      <p>More to behold than grasp...</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Behold</button>
+      <h1>Creativity</h1>
+      <p id="typing-text" aria-live="polite" aria-atomic="true"></p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">See More...</button>
     </div>
   </section>
-<p></p>
+
   <section class="features" aria-label="Features built by Feshr">
     <article class="feature-image-card" tabindex="0" aria-label="Web Design Feature">
       <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Creative web design workspace" />
@@ -392,35 +413,39 @@
         <h3>Web Development</h3>
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
-    </article><p></p>
+    </article>
+  </section>
+  <p>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Mind</h1>
-      <p>Infinity and Beyond...</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Acquire</button>
+      <h1>Connect With Power</h1>
+      <p>Much more to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
     </div>
-  </section><p></p>
-    <article class="feature-image-card" tabindex="0" aria-label="SEO Optimization Feature">
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="SEO analytics dashboard" />
+  </section><p>
+  <section class="features" aria-label="Features built by Feshr">
+    <article class="feature-image-card" tabindex="0" aria-label="Web Design Feature">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Creative web design workspace" />
       <div class="overlay">
-        <h3>SEO Optimization</h3><p>Boost your online visibility and drive organic traffic to your business.</p>
+        <h3>Web Design</h3>
+        <p>Creative, responsive, and user-centered designs that captivate your audience.</p>
       </div>
     </article>
-    <article class="feature-image-card" tabindex="0" aria-label="Maintenance & Support Feature">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Technical support team at work" />
+    <article class="feature-image-card" tabindex="0" aria-label="Web Development Feature">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Developers coding on laptops" />
       <div class="overlay">
-        <h3>Maintenance & Support</h3>
-        <p>Reliable support and maintenance to keep your website secure and up-to-date.</p>
+        <h3>Web Development</h3>
+        <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
-    </article><p></p>
-    <section class="hero" id="home" tabindex="0">
+    </article></section>
+ <p> 
+  <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Intuitive</h1>
-      <p>As far as you can see...</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Partner</button>
+      <h1>Connect With Power</h1>
+      <p>Much more to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
     </div>
   </section>
-  </section><p></p>
 </main>
 
 <div class="wave" aria-hidden="true"></div>
@@ -472,6 +497,82 @@
   exploreBtn.addEventListener('click', () => {
     document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
   });
+
+  const typingText = document.getElementById('typing-text');
+
+const textSets = [
+  [
+    "In a world where...\nEveryone needs to be creative...\nthe mind is the source of all power.",
+    "In you is something powerful...",
+    "As far as you can behold...\nwith the power of your mind, \nFar and beyond to grasp...",
+    "as far as your eyes can see...",
+    "For Creativity...",
+    "Is As Far Your Eyes Can See!!!"
+  ],
+  [
+    "Creativity flows like a river...",
+    "The mind unlocks endless possibilities...",
+    "Power lies within your imagination...",
+    "Reach beyond horizons...",
+    "See what others cannot see...",
+    "And create the unseen."
+  ],
+  [
+    "Every idea starts with a spark...",
+    "The mind is the ultimate power source...",
+    "Within you is infinite potential...",
+    "Look beyond the obvious...",
+    "Grasp the intangible...",
+    "And make it real."
+  ]
+];
+
+const lines = textSets[Math.floor(Math.random() * textSets.length)];
+
+let lineIndex = 0;
+let charIndex = 0;
+let typingSpeed = 135;
+let erasingSpeed = 60;
+let delayBetweenLines = 1800;
+
+function type() {
+  if (charIndex < lines[lineIndex].length) {
+    let currentChar = lines[lineIndex].charAt(charIndex);
+    if (currentChar === '\n') {
+      typingText.innerHTML += '<br>';
+    } else {
+      typingText.innerHTML += currentChar;
+    }
+    charIndex++;
+    setTimeout(type, typingSpeed);
+  } else {
+    if (lineIndex === lines.length - 1) {
+      return;
+    }
+    setTimeout(erase, delayBetweenLines);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    let currentText = typingText.innerHTML;
+    if (currentText.endsWith('<br>')) {
+      typingText.innerHTML = currentText.slice(0, -4);
+    } else {
+      typingText.innerHTML = currentText.slice(0, -1);
+    }
+    charIndex--;
+    setTimeout(erase, erasingSpeed);
+  } else {
+    lineIndex++;
+    setTimeout(type, typingSpeed);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(type, 800);
+});
+
 </script>
 
 </body>
