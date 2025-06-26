@@ -392,8 +392,7 @@
         <h3>Web Development</h3>
         <p>Robust, scalable websites built with the latest technologies for optimal performance.</p>
       </div>
-    </article>
-    <p></p>
+    </article><p></p>
     <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
       <h1>Mind</h1>
