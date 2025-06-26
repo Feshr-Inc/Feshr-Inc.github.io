@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Feshr - Terms and Conditions</title>
+  <title>Feshr - Legal Information</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer -->
+  <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer and other text -->
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
-    /* Reset */
+    /* Reuse existing styles with minor adjustments for legal page */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -18,12 +18,12 @@
       color: #1d1d1f;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-
-    /* Header */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -40,7 +40,7 @@
     .logo {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       letter-spacing: 0.12em;
       user-select: none;
       cursor: default;
@@ -49,8 +49,8 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-transform: uppercase;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .menu-toggle {
       width: 28px;
@@ -76,8 +76,6 @@
     .menu-toggle.active div:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
-
-    /* Dropdown menu */
     nav.dropdown-menu {
       position: fixed;
       top: 60px;
@@ -108,6 +106,7 @@
       text-decoration: none;
       user-select: none;
       transition: background-color 0.3s ease, color 0.3s ease;
+      word-break: break-word;
     }
     nav.dropdown-menu a:hover,
     nav.dropdown-menu a:focus {
@@ -116,48 +115,49 @@
       outline: none;
       box-shadow: 0 4px 12px rgba(0,113,227,0.4);
     }
-
-    /* Main content styling */
     main {
-      padding: 100px 2rem 4rem;
+      padding-top: 80px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto 4rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
       flex-grow: 1;
-      color: #1d1d1f;
-    }
-    h1 {
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #005bb5;
-      letter-spacing: 0.05em;
-    }
-    h2 {
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-top: 2.5rem;margin-bottom: 0.75rem;
-      color: #0071e3;
-    }
-    p {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 400;
-      font-size: 1rem;
+      font-family: 'Lora', serif;
       line-height: 1.6;
-      margin-bottom: 1rem;
       color: #333;
     }
-    ul {
+    main h1, main h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      color: #005bb5;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    main h1 {
+      font-size: 2rem;
+      border-bottom: 3px solid #0071e3;
+      padding-bottom: 0.3rem;
+    }
+    main h2 {
+      font-size: 1.4rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    main p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #4a4a4a;
+    }
+    main ul {
       margin-left: 1.5rem;
       margin-bottom: 1rem;
-      color: #333;
+      color: #4a4a4a;
     }
-    ul li {
+    main ul li {
       margin-bottom: 0.5rem;
     }
-
-    /* Footer: subtle, minimal, blending with background */
     footer {
       background: transparent;
       padding: 0.5rem 2rem;
@@ -201,11 +201,9 @@
       font-weight: 400;
       letter-spacing: 0.02em;
     }
-
-    /* Responsive */
     @media (max-width: 768px) {
       main {
-        padding: 120px 1.5rem 3rem;
+        max-width: 90%;
       }
       footer .footer-container {
         flex-direction: column;
@@ -215,30 +213,6 @@
       footer nav {
         justify-content: center;
       }
-    }
-    @media (max-width: 480px) {
-      main {
-        padding: 120px 1rem 2rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.25rem;
-      }
-      p, ul li {
-        font-size: 0.9rem;
-      }
-      header {
-        padding: 1rem;
-      }
-    }
-
-    /* Smooth gradient color shift for hero heading */
-    @keyframes colorShift {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
     }
   </style>
 </head>
@@ -250,58 +224,75 @@
     <div></div><div></div><div></div>
   </div>
   <nav class="dropdown-menu" id="navMenu" aria-hidden="true">
-    <a href="index.html">Home</a>
-    <a href="terms.html" aria-current="page">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#portfolio">Portfolio</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#testimonials">Testimonials</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#privacy">Privacy Policy</a>
+    <a href="legal.html" aria-current="page">Legal</a>
   </nav>
 </header>
 
-<main>
-  <h1>Terms and Conditions</h1>
+<main role="main" tabindex="0">
+  <h1>Legal Information</h1>
 
-  <p>These Terms and Conditions ("Agreement") govern your use of the Feshr website and services. Please read this Agreement carefully before using our site.</p>
+  <section aria-labelledby="terms-heading">
+    <h2 id="terms-heading">Terms of Service</h2>
+    <p>Welcome to Feshr! By accessing or using our website, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+    <ul>
+      <li><strong>Use of Site:</strong> You agree to use the site for lawful purposes only and not to engage in any conduct that may harm the site or its users.</li>
+      <li><strong>Intellectual Property:</strong> All content, designs, logos, and materials on Feshr are owned by or licensed to us. You may not reproduce, distribute, or create derivative works without our permission.</li>
+      <li><strong>User Content:</strong> If you submit content to Feshr, you grant us a non-exclusive, worldwide, royalty-free license to use, modify, and display such content.</li>
+      <li><strong>Limitation of Liability:</strong> Feshr is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of the site.</li>
+      <li><strong>Changes to Terms:</strong> We reserve the right to update these terms at any time. Continued use of the site constitutes acceptance of the updated terms.</li>
+    </ul>
+  </section>
 
-  <h2>A. Introduction</h2>
-  <p>By accessing or using Feshr, you agree to be bound by this Agreement. If you do not agree, please do not use our services.</p>
+  <section aria-labelledby="privacy-heading">
+    <h2 id="privacy-heading">Privacy Policy</h2>
+    <p>Your privacy is important to us. This policy explains how we collect, use, and protect your personal information when you use Feshr.</p>
+    <ul>
+      <li><strong>Information Collection:</strong> We may collect information you provide directly, such as your name and email, as well as technical data like IP addresses and browser type.</li>
+      <li><strong>Use of Information:</strong> Data is used to improve our services, communicate with you, and for security purposes.</li>
+      <li><strong>Cookies:</strong> We use cookies to enhance user experience and analyze site traffic. You can control cookie settings through your browser.</li>
+      <li><strong>Data Security:</strong> We implement reasonable measures to protect your information but cannot guarantee absolute security.</li>
+      <li><strong>Third-Party Services:</strong> We do not sell your personal data. Some services we use may collect data as described in their own privacy policies.</li>
+    </ul>
+  </section>
 
-  <h2>B. Use of Services</h2>
-  <p>You agree to use the services only for lawful purposes and in accordance with these terms.</p>
+  <section aria-labelledby="disclaimer-heading">
+    <h2 id="disclaimer-heading">Disclaimer</h2>
+    <p>The content provided on Feshr is for informational purposes only. We do not guarantee the accuracy, completeness, or usefulness of any information on the site. Your use of the site is at your own risk.</p>
+  </section>
 
-  <h2>C. Intellectual Property</h2>
-  <p>All content, trademarks, and intellectual property on this site are owned by Feshr or its licensors. You may not use, copy, or distribute any content without prior permission.</p>
-
-  <h2>D. User Responsibilities</h2>
-  <ul>
-    <li>You must provide accurate information when creating accounts or using services.</li>
-    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
-    <li>Prohibited activities include unauthorized access, harassment, and distribution of harmful content.</li>
-  </ul>
-
-  <h2>E. Limitation of Liability</h2>
-  <p>Feshr is provided "as is" without warranties of any kind. We are not liable for damages arising from use of the site.</p>
-
-  <h2>F. Changes to Terms</h2>
-  <p>We reserve the right to update these Terms at any time. Continued use after changes constitutes acceptance.</p> <h2>G. Governing Law</h2>
-  <p>This Agreement is governed by the laws of your jurisdiction.</p>
-
-  <h2>H. Contact Information</h2>
-  <p>If you have questions about these Terms, please contact us at <a href="mailto:contact@feshr.com">contact@feshr.com</a>.</p>
+  <section aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
+    <p>If you have any questions about these legal terms, please contact us at <a href="mailto:legal@feshr.com">legal@feshr.com</a>.</p>
+  </section>
 </main>
 
 <footer>
   <div class="footer-container">
     <nav aria-label="Footer navigation">
-      <a href="index.html">Home</a>
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#testimonials">Testimonials</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#privacy">Privacy Policy</a>
+      <a href="legal.html" aria-current="page">Legal</a>
     </nav>
     <p class="copyright">&copy; 2025 Feshr. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
+  // Menu toggle script reused from main site
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
 
