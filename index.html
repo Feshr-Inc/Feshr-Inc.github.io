@@ -22,6 +22,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     /* Header */
@@ -53,8 +54,7 @@
   text-transform: uppercase;
   text-shadow: 0 2px 5px rgba(0,0,0,0.1);
   background-color: transparent; /* fully transparent */
-  padding-right: 1rem; /* space for the border */
-  border-right: 1.5px solid rgba(0, 113, 227, 0.2); /* subtle vertical line */
+  
 }
 
 /* Optional: on hover/focus, make the border more visible */
@@ -380,12 +380,35 @@
       50% {background-position:100% 50%;}
       100% {background-position:0% 50%;}
     }
+
+    /* Trail segment styles */
+    .trail-segment {
+      position: fixed;
+      width: 12px;
+      height: 3px;
+      background: #0071e3;
+      border-radius: 2px;
+      pointer-events: none;
+      filter: drop-shadow(0 0 6px #0099e6);
+      opacity: 0.7;
+      animation: fadeMove 1.5s forwards ease-out;
+      will-change: transform, opacity;
+      z-index: 13000;
+      transform-origin: center;
+    }
+
+    @keyframes fadeMove {
+      to {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.5);
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo" aria-label="Feshr Logo">Feshr</div>
+  <div class="logo" aria-label="Feshr Logo"><strong>Feshr</strong></div>
   <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navMenu">
     <div></div><div></div><div></div>
   </div>
@@ -430,9 +453,9 @@
 
   <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Mind</h1>
-      <p>Infinity and Beyond...</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Explore</button>
+      <h1>Connect With Power</h1>
+      <p>Much more to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
     </div>
   </section>
 
@@ -455,9 +478,9 @@
 
   <section class="hero" id="home" tabindex="0">
     <div id="hero-content">
-      <h1>Power</h1>
-      <p>More to behold than grasp...</p>
-      <button id="exploreBtn" type="button" aria-label="Explore Now">Hold</button>
+      <h1>Connect With Power</h1>
+      <p>Much more to behold than grasp...</p>
+      <button id="exploreBtn" type="button" aria-label="Explore Now">Now</button>
     </div>
   </section>
 
@@ -592,7 +615,62 @@
   document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 800);
   });
+
+  // --- Glowing line trail following pointer or touch ---
+
+  let lastPos = null;
+  let trailThrottle = false;
+
+  function isInteractiveElement(el) {
+    if (!el) return false;
+    const interactiveTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL'];
+    if (interactiveTags.includes(el.tagName)) return true;
+    if (el.hasAttribute('role') && el.getAttribute('role') !== 'presentation') return true;
+    return false;
+  }
+
+  function createTrailSegment(x1, y1, x2, y2) {
+    const segment = document.createElement('div');
+    segment.className = 'trail-segment';
+
+    // Calculate angle and length between points
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const length = Math.sqrt(dx * dx + dy * dy);
+    const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+    segment.style.width = length + 'px';
+    segment.style.left = x1 + 'px';
+    segment.style.top = y1 + 'px';
+    segment.style.transform = `rotate(${angle}deg)`;
+
+    document.body.appendChild(segment);
+    segment.addEventListener('animationend', () => segment.remove());
+  }
+
+  function onPointerMove(e) {
+    if (trailThrottle) return;
+    trailThrottle = true;
+    setTimeout(() => trailThrottle = false, 16); // ~60fps max
+
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    if (isInteractiveElement(el)) return;
+
+    if (lastPos) {
+      createTrailSegment(lastPos.x, lastPos.y, e.clientX, e.clientY);
+    }
+    lastPos = { x: e.clientX, y: e.clientY };
+  }
+
+  function onPointerUp() {
+    lastPos = null;
+  }
+
+  window.addEventListener('pointermove', onPointerMove);
+  window.addEventListener('pointerup', onPointerUp);
+  window.addEventListener('pointercancel', onPointerUp);
 </script>
 
 </body>
-</html>
+  </html>
+                                                           
