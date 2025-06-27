@@ -381,22 +381,30 @@
       100% {background-position:0% 50%;}
     }
 
-    /* Trail line element */
-    #trailLine {
+    /* --- Spark particle styles --- */
+    .spark {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 2px;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #0071e3 0%, transparent 70%);
+      border-radius: 50%;
       pointer-events: none;
-      filter: drop-shadow(0 0 6px rgba(0,0,0,0.2));
-      transform-origin: left center;
-      transition: opacity 0.3s ease;
-      opacity: 0;
+      opacity: 1;
+      filter: drop-shadow(0 0 4px #0099e6);
+      animation: sparkFade 1.2s forwards ease-out;
       z-index: 13000;
       will-change: transform, opacity;
+    }
+
+    @keyframes sparkFade {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.5);
+      }
     }
   </style>
 </head>
@@ -498,9 +506,6 @@
   </div>
 </footer>
 
-<!-- Trail line element -->
-<div id="trailLine"></div>
-
 <script>
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
@@ -528,6 +533,7 @@
     }
   });
 
+  // Close menu on scroll with fluid animation
   window.addEventListener('scroll', () => {
     if (navMenu.classList.contains('active')) {
       toggleMenu();
@@ -613,85 +619,42 @@
     setTimeout(type, 800);
   });
 
-  // Trail line script
-  (function() {
-    const trail = document.getElementById('trailLine');
-    let lastX = -100, lastY = -100;
-    let currentX = -100, currentY = -100;
-    let targetX = -100, targetY = -100;
-    let visible = false;
-    let lastMoveTime = 0;
+  // --- Spark effect on empty space hover ---
+  function isInteractiveElement(el) {
+    if (!el) return false;
+    const interactiveTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL'];
+    if (interactiveTags.includes(el.tagName)) return true;
+    if (el.hasAttribute('role') && el.getAttribute('role') !== 'presentation') return true;
+    return false;
+  }
 
-    function isInteractive(el) {
-      if (!el) return false;
-      const tags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL'];
-      if (tags.includes(el.tagName)) return true;
-      if (el.hasAttribute('role') && el.getAttribute('role') !== 'presentation') return true;
-      return false;
+  function createSpark(x, y) {
+    const spark = document.createElement('div');
+    spark.className = 'spark';
+    spark.style.left = `${x - 3}px`; // center spark on pointer
+    spark.style.top = `${y - 3}px`;
+    document.body.appendChild(spark);
+    spark.addEventListener('animationend', () => spark.remove());
+  }
+
+  let sparkThrottle = false;
+  window.addEventListener('pointermove', e => {
+    if (sparkThrottle) return;
+    sparkThrottle = true;
+    setTimeout(() => sparkThrottle = false, 50); // limit spark frequency
+
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    if (!el || isInteractiveElement(el)) return;
+
+    // Create multiple sparks with slight random offset
+    for (let i = 0; i < 3; i++) {
+      const offsetX = (Math.random() - 0.5) * 20;
+      const offsetY = (Math.random() - 0.5) * 20;
+      createSpark(e.clientX + offsetX, e.clientY + offsetY);
     }
-
-    function showTrail() {
-      if (!visible) {
-        trail.style.opacity = '1';
-        visible = true;
-      }
-      lastMoveTime = performance.now();
-    }
-
-    function hideTrail() {
-      if (visible && performance.now() - lastMoveTime > 1000) {
-        trail.style.opacity = '0';
-        visible = false;
-      }
-    }
-
-    function animate() {
-      currentX += (targetX - currentX) * 0.2;
-      currentY += (targetY - currentY) * 0.2;
-
-      const dx = currentX - lastX;
-      const dy = currentY - lastY;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-
-      if (dist > 1) {
-        trail.style.left = lastX + 'px';
-        trail.style.top = lastY + 'px';
-
-        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-        trail.style.transform = `rotate(${angle}deg) scaleX(${Math.min(dist / 60, 1)})`;
-
-        lastX = currentX;
-        lastY = currentY;
-      }
-
-      hideTrail();
-      requestAnimationFrame(animate);
-    }
-
-    function onPointerMove(e) {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      const el = document.elementFromPoint(x, y);
-      if (isInteractive(el)) {
-        trail.style.opacity = '0';
-        visible = false;
-        return;
-      }
-
-      targetX = x;
-      targetY = y;
-      showTrail();
-    }
-
-    window.addEventListener('pointermove', onPointerMove, {passive:true});
-    window.addEventListener('pointerup', () => {}, {passive:true});
-    window.addEventListener('pointercancel', () => {}, {passive:true});
-
-    animate();
-  })();
+  });
 </script>
 
 </body>
-    </html>
-  
+</html>
+l>
