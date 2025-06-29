@@ -560,7 +560,7 @@
     <div id="hero-content">
       <h1>Client Consultation</h1>
       <p id="typing-text" aria-live="polite" aria-atomic="true"></p>
-   
+      <button id="exploreBtn" type="button" aria-label="Explore Now">See More...</button>
     </div>
   
 <section class="features" aria-label="Features built by Feshr Inc.">
@@ -694,4 +694,56 @@
       if (currentText.endsWith('<br>')) {
         typingText.innerHTML = currentText.slice(0, -4);
       } else {
-        typingText.innerHTML = 
+        typingText.innerHTML = currentText.slice(0, -1);
+      }
+      charIndex--;
+      setTimeout(erase, erasingSpeed);
+    } else {
+      lineIndex++;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(type, 800);
+  });
+
+  // --- Spark effect on empty space hover ---
+  function isInteractiveElement(el) {
+    if (!el) return false;
+    const interactiveTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL'];
+    if (interactiveTags.includes(el.tagName)) return true;
+    if (el.hasAttribute('role') && el.getAttribute('role') !== 'presentation') return true;
+    return false;
+  }
+
+  function createSpark(x, y) {
+    const spark = document.createElement('div');
+    spark.className = 'spark';
+    spark.style.left = `${x - 3}px`; // center spark on pointer
+    spark.style.top = `${y - 3}px`;
+    document.body.appendChild(spark);
+    spark.addEventListener('animationend', () => spark.remove());
+  }
+
+  let sparkThrottle = false;
+  window.addEventListener('pointermove', e => {
+    if (sparkThrottle) return;
+    sparkThrottle = true;
+    setTimeout(() => sparkThrottle = false, 50); // limit spark frequency
+
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    if (!el || isInteractiveElement(el)) return;
+
+    // Create multiple sparks with slight random offset
+    for (let i = 0; i < 3; i++) {
+      const offsetX = (Math.random() - 0.5) * 20;
+      const offsetY = (Math.random() - 0.5) * 20;
+      createSpark(e.clientX + offsetX, e.clientY + offsetY);
+    }
+  });
+</script>
+
+</body>
+</html>
+
