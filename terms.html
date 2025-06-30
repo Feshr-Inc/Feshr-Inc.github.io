@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <title>Feshr Inc. - Legal Information</title>
+  <title>Feshr Inc.- Connect with Power... Connect With Infinity...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Google Fonts: Merriweather for headings, Open Sans for body, Lora for footer and other text -->
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
@@ -23,7 +22,10 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
     }
+
+    /* Header */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -37,28 +39,32 @@
       padding: 1rem 2rem;
       z-index: 10000;
     }
-    .logo {
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: 0.12em;
-      user-select: none;
-      cursor: default;
-      background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      text-transform: uppercase;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding-right: 1rem;
-      border-right: 1.5px solid rgba(0, 113, 227, 0.2);
-    }
-    .logo:hover,
-    .logo:focus {
-      border-color: rgba(0, 113, 227, 0.5);
-      outline: none;
-    }
+   .logo {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1.4rem; /* slightly bigger */
+  letter-spacing: 0.12em;
+  user-select: none;
+  cursor: default;
+  background: linear-gradient(90deg, #005bb5, #0071e3, #0099e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: transparent; /* fully transparent */
+  
+}
+
+/* Optional: on hover/focus, make the border more visible */
+.logo:hover,
+.logo:focus {
+  border-color: rgba(0, 113, 227, 0.5);
+  outline: none;
+}
+
+
     .menu-toggle {
       width: 28px;
       height: 22px;
@@ -83,6 +89,8 @@
     .menu-toggle.active div:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
     }
+
+    /* Dropdown menu with fluid fade and slide */
     nav.dropdown-menu {
       position: fixed;
       top: 60px;
@@ -98,6 +106,8 @@
       z-index: 10500;
       border-radius: 0 0 18px 18px;
       backdrop-filter: saturate(180%) blur(20px);
+
+      /* Hidden state */
       opacity: 0;
       pointer-events: none;
       transform: translateY(-10px);
@@ -128,49 +138,174 @@
       outline: none;
       box-shadow: 0 4px 12px rgba(0,113,227,0.4);
     }
+
+    /* Main padding */
     main {
       padding-top: 80px;
       max-width: 1100px;
-      margin: 0 auto 4rem;
+      margin: 0 auto;
       padding-left: 1rem;
       padding-right: 1rem;
       flex-grow: 1;
-      font-family: 'Lora', serif;
-      line-height: 1.6;
-      color: #333;
     }
-    main h1, main h2 {
+
+    .hero {
+      position: relative;
+      text-align: center;
+      margin-bottom: 6rem;
+      padding: 6rem 1rem 4rem;
+      overflow: visible;
+      color: #1d1d1f;
+    }
+    #hero-content h1 {
       font-family: 'Merriweather', serif;
       font-weight: 700;
-      color: #005bb5;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 4vw, 3.5rem); /* responsive font size */
       letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    main h1 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      border-bottom: 3px solid #0071e3;
-      padding-bottom: 0.3rem;
-    }
-    main h2 {
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      margin-top: 2.5rem;
-      margin-bottom: 0.75rem;
-    }
-    main p {
-      margin-bottom: 1rem;
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: #4a4a4a;
-    }
-    main ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-      color: #4a4a4a;
-    }
-    main ul li {
+      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      animation: colorShift 8s ease infinite alternate;
       margin-bottom: 0.5rem;
+      line-height: 1.05;
+      text-transform: uppercase;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-position 8s ease;
     }
+    #hero-content p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #4a4a4a;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      line-height: 1.6;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+      min-height: 4.5em;
+    }
+   #hero-content button {
+      background: linear-gradient(135deg, #005bb5, #0071e3);
+      border: none;
+      color: white;
+      padding: 0.4rem 1.6rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+      transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+      user-select: none;
+      letter-spacing: 0.04em;
+      font-family: 'Merriweather', serif;
+      min-width: 130px;
+      display: inline-block;
+      text-align: center;
+      box-shadow:
+        inset 0 -3px 6px rgba(255, 255, 255, 0.2),
+        0 4px 12px rgba(0, 113, 227, 0.3);
+    }
+
+    #hero-content button:hover,
+    #hero-content button:focus {
+      background: linear-gradient(135deg, #0071e3, #0099e6);
+      box-shadow:
+        inset 0 -3px 6px rgba(255, 255, 255, 0.3),
+        0 6px 20px rgba(0, 113, 227, 0.5);
+      transform: translateY(-3px) scale(1.05);
+      outline: none;
+    }
+
+    /* Features Image Grid with Overlay */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 2.5rem;
+      margin-bottom: 6rem;
+    }
+    .feature-image-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+      outline-offset: 4px;
+      background: #fff;
+    }
+    .feature-image-card:focus,
+    .feature-image-card:hover {
+      box-shadow: 0 32px 64px rgba(0,0,0,0.15);
+      transform: translateY(-12px);
+      outline: none;
+    }
+    .feature-image-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .feature-image-card:hover img,
+    .feature-image-card:focus img {
+      transform: scale(1.05);
+    }
+    .feature-image-card .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.5rem 2rem;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 113, 227, 0.85) 90%);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      border-radius: 0 0 18px 18px;
+    }
+    .feature-image-card:hover .overlay,
+    .feature-image-card:focus .overlay {
+      opacity: 1;
+    }
+    .feature-image-card h3 {
+      margin: 0 0 0.5rem;
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
+    .feature-image-card p {
+      margin: 0;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    /* Wave Background */
+    .wave {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 160px;
+      background: url('https://svgshare.com/i/_U9.svg') no-repeat bottom center;
+      background-size: cover;
+      pointer-events: none;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    /* Footer: subtle, minimal, blending with background */
     footer {
       background: transparent;
       padding: 0.5rem 2rem;
@@ -214,9 +349,11 @@
       font-weight: 400;
       letter-spacing: 0.02em;
     }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      main {
-        max-width: 90%;
+      .features {
+        grid-template-columns: 1fr 1fr;
       }
       footer .footer-container {
         flex-direction: column;
@@ -227,25 +364,193 @@
         justify-content: center;
       }
     }
+    @media (max-width: 480px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        padding: 1rem;
+      }
+    }
+
+    /* Smooth gradient color shift for hero heading */
+    @keyframes colorShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    /* --- Spark particle styles --- */
+    .spark {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #0071e3 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 1;
+      filter: drop-shadow(0 0 4px #0099e6);
+      animation: sparkFade 1.2s forwards ease-out;
+      z-index: 13000;
+      will-change: transform, opacity;
+    }
+
+    @keyframes sparkFade {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.5);
+      }
+    }
+    /* Client Consultation Section */
+    .client-consultation {
+      max-width: 720px;
+      margin: 4rem auto 6rem;
+      padding: 2.5rem 2rem;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0, 113, 227, 0.15);
+      color: #1d1d1f;
+      font-family: 'Open Sans', sans-serif;
+      transition: box-shadow 0.3s ease;
+    }
+    .client-consultation:hover {
+      box-shadow: 0 20px 48px rgba(0, 113, 227, 0.25);
+    }
+    .client-consultation h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(270deg, #005bb5, #0071e3, #0099e6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: 0 3px 8px rgba(0, 113, 227, 0.3);
+      text-align: center;
+    }
+    .client-consultation p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      color: #4a4a4a;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .client-consultation form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .client-consultation label {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1d1d1f;
+    }
+    .client-consultation input,
+    .client-consultation select,
+    .client-consultation textarea {
+      padding: 0.75rem 1rem;
+      border-radius: 16px;
+      border: 1.5px solid #cbd5e1;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      outline-offset: 2px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .client-consultation input:focus,
+    .client-consultation select:focus,
+    .client-consultation textarea:focus {
+      border-color: #0071e3;
+      box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
+      outline: none;
+    }
+    .client-consultation textarea {
+      min-height: 100px;
+      max-height: 200px;
+      resize: vertical;
+    }
+    @media (min-width: 768px) {
+      .client-consultation textarea {
+        min-height: 140px;
+        max-height: 280px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .client-consultation textarea {
+        min-height: 180px;
+        max-height: 320px;
+      }
+    }
+    .client-consultation button {
+      background: linear-gradient(135deg, #005bb5, #0071e3);
+      color: white;
+      padding: 0.75rem 1.8rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 24px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 113, 227, 0.4);
+      transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+      align-self: center;
+      max-width: 280px;
+      user-select: none;
+      font-family: 'Merriweather', serif;
+    }
+    .client-consultation button:hover,
+    .client-consultation button:focus {
+      background: linear-gradient(135deg, #0071e3, #0099e6);
+      box-shadow: 0 8px 28px rgba(0, 113, 227, 0.6);
+      transform: translateY(-4px) scale(1.05);
+      outline: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .client-consultation {
+        margin: 3rem 1rem 4rem;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+      }
+      .client-consultation button {
+        max-width: 100%;
+      }
+    }
+
+    /* Existing styles for hero, features, footer, etc. remain unchanged */
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo" aria-label="Feshr Logo">Feshr</div>
+  <div class="logo" aria-label="Feshr Logo"><strong>Feshr</strong></div>
   <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" role="button" tabindex="0" aria-expanded="false" aria-controls="navMenu">
     <div></div><div></div><div></div>
   </div>
   <nav class="dropdown-menu" id="navMenu" aria-hidden="true">
-    <a href="index.html#home">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#portfolio">Portfolio</a>
-    <a href="index.html#blog">Blog</a>
-    <a href="index.html#testimonials">Testimonials</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="index.html#privacy">Privacy Policy</a>
-    <a href="legal.html" aria-current="page">Legal</a>
+    <a href="/">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#blog">Blog</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="/terms.html">Terms of Service</a>
   </nav>
 </header>
 
@@ -287,19 +592,20 @@
     <p>If you have any questions about these legal terms or our services, please contact us at <a href="mailto:legal@feshr.com">legal@feshr.com</a>.</p>
   </section>
 </main>
+<div class="wave" aria-hidden="true"></div>
 
 <footer>
   <div class="footer-container">
     <nav aria-label="Footer navigation">
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#portfolio">Portfolio</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="index.html#testimonials">Testimonials</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="index.html#privacy">Privacy Policy</a>
-      <a href="legal.html" aria-current="page">Legal</a>
+      <a href="/">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#blog">Blog</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
     </nav>
     <p class="copyright">&copy; 2025 Feshr Inc. All rights reserved.</p>
   </div>
@@ -308,6 +614,7 @@
 <script>
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
+  const exploreBtn = document.getElementById('exploreBtn');
 
   function toggleMenu() {
     const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -330,7 +637,111 @@
       toggleMenu();
     }
   });
+
+  // Close menu on scroll with fluid animation
+  window.addEventListener('scroll', () => {
+    if (navMenu.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+
+  exploreBtn.addEventListener('click', () => {
+    document.querySelector('.features').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  const typingText = document.getElementById('typing-text');
+
+  const textSets = [
+    [
+      "Hello, Your First Time Here?",
+      "Join Us...\n As We Make The, Most Powerful Out Of The Ordinary...",
+      "What do you See?"
+    ],
+    
+  ];
+
+  const lines = textSets[Math.floor(Math.random() * textSets.length)];
+
+  let lineIndex = 0;
+  let charIndex = 0;
+  let typingSpeed = 135;
+  let erasingSpeed = 60;
+  let delayBetweenLines = 1800;
+
+  function type() {
+    if (charIndex < lines[lineIndex].length) {
+      let currentChar = lines[lineIndex].charAt(charIndex);
+      if (currentChar === '\n') {
+        typingText.innerHTML += '<br>';
+      } else {
+        typingText.innerHTML += currentChar;
+      }
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      if (lineIndex === lines.length - 1) {
+        return;
+      }
+      setTimeout(erase, delayBetweenLines);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      let currentText = typingText.innerHTML;
+      if (currentText.endsWith('<br>')) {
+        typingText.innerHTML = currentText.slice(0, -4);
+      } else {
+        typingText.innerHTML = currentText.slice(0, -1);
+      }
+      charIndex--;
+      setTimeout(erase, erasingSpeed);
+    } else {
+      lineIndex++;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(type, 800);
+  });
+
+  // --- Spark effect on empty space hover ---
+  function isInteractiveElement(el) {
+    if (!el) return false;
+    const interactiveTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL'];
+    if (interactiveTags.includes(el.tagName)) return true;
+    if (el.hasAttribute('role') && el.getAttribute('role') !== 'presentation') return true;
+    return false;
+  }
+
+  function createSpark(x, y) {
+    const spark = document.createElement('div');
+    spark.className = 'spark';
+    spark.style.left = `${x - 3}px`; // center spark on pointer
+    spark.style.top = `${y - 3}px`;
+    document.body.appendChild(spark);
+    spark.addEventListener('animationend', () => spark.remove());
+  }
+
+  let sparkThrottle = false;
+  window.addEventListener('pointermove', e => {
+    if (sparkThrottle) return;
+    sparkThrottle = true;
+    setTimeout(() => sparkThrottle = false, 50); // limit spark frequency
+
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    if (!el || isInteractiveElement(el)) return;
+
+    // Create multiple sparks with slight random offset
+    for (let i = 0; i < 3; i++) {
+      const offsetX = (Math.random() - 0.5) * 20;
+      const offsetY = (Math.random() - 0.5) * 20;
+      createSpark(e.clientX + offsetX, e.clientY + offsetY);
+    }
+  });
 </script>
 
 </body>
 </html>
+
